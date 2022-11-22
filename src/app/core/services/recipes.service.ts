@@ -1,7 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { of, catchError } from 'rxjs';
 import { Recipe } from '../model/recipe.model';
 const BASE_PATH=environment.basePath
 
@@ -10,7 +10,9 @@ const BASE_PATH=environment.basePath
   providedIn: 'root',
 })
 export class RecipesService {
-  recipes$ = this.http.get<Recipe[]>(`${BASE_PATH}/recipes`);
+  recipes$ = this.http.get<Recipe[]>(`${BASE_PATH}/recipes`).pipe(
+    catchError(error => of([]))
+      )
 
   constructor(private http: HttpClient) {}
 

@@ -17,12 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
+import { RecipesFilterComponent } from './recipes-filter/recipes-filter.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
     RecipesListComponent,
+    RecipesFilterComponent,
   ],
   imports: [
     BrowserModule,
